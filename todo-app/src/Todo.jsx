@@ -1,10 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Todo() {
-  const [todos, setTodos] = useState([{ title: "work" }]); // a state which can hold a todo data
+  const [todos, setTodos] = useState([]); // a state which can hold a todo data
   const [title, setTitle] = useState(""); //a state which can do get user-input
   const [hide, setHide] = useState(true);
+  const [index, setIndex] = useState(0);
 
+  // create funtion for LS
+  const setLS = (data) => {
+    localStorage.setItem("todos", JSON.stringify(data));
+  };
+  const getLS = () => {
+    setTodos(JSON.parse(localStorage.getItem("todos")) || []);
+  };
+
+  useEffect(() => {
+    getLS();
+  }, []);
   return (
     <>
       <div className="card w-50 m-auto mt-5 p-5 rounded-4">
@@ -23,9 +35,15 @@ export default function Todo() {
             placeholder="Enter Your Todo"
             style={{ width: 450 }}
           />
-          <button onClick={()=>{
-            setHide(true);
-          }}
+          <button
+            onClick={() => {
+              const temp = [...todos];
+              temp[index].title = title;
+              setTodos(temp);
+              setHide(true);
+              setLS(temp);
+              setTitle("");
+            }}
             className={"btn btn-success rounded-4 " + (hide ? "d-none" : "")}
           >
             Update
@@ -33,7 +51,11 @@ export default function Todo() {
           <button
             //on that add btn click the value of user we store in state it will be add into todo array
             onClick={() => {
-              setTodos([...todos, { title }]);
+              const temp = [...todos];
+              temp.push({ title });
+              setTodos(temp);
+              setLS(temp);
+              setTitle("");
             }}
             className={
               "btn btn-primary rounded-4 " + (title === "" ? "disabled" : "")
@@ -48,27 +70,29 @@ export default function Todo() {
         >
           {todos.map((todo, i) => (
             <div key={i}>
-              <p className="card py-2 ps-2 d-flex flex-row">
+              <div className="card py-2 ps-2 d-flex flex-row w-auto mb-3">
                 {todo.title}
-                <button
-                  onClick={() => {
-                    setTitle(todo.title);
-                    setHide(false);
-                  }}
-                  className="btn"
-                  style={{ marginLeft: 270 }}
-                >
-                  <i className="bi bi-pen text-info"></i>
-                </button>
-                <button
-                  className="btn"
-                  onClick={() => {
-                    setTodos(todos.filter((td, ti) => i != ti));
-                  }}
-                >
-                  <i className="bi bi-trash3-fill text-danger"></i>
-                </button>
-              </p>
+                <div>
+                  <button
+                    onClick={() => {
+                      setTitle(todo.title);
+                      setHide(false);
+                      setIndex(i);
+                    }}
+                    className="btn"
+                  >
+                    <i className="bi bi-pen text-info "></i>
+                  </button>
+                  <button
+                    className="btn"
+                    onClick={() => {
+                      setTodos(todos.filter((td, ti) => i != ti));
+                    }}
+                  >
+                    <i className="bi bi-trash3-fill text-danger"></i>
+                  </button>
+                </div>
+              </div>
             </div>
           ))}
         </div>
