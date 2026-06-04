@@ -1,16 +1,49 @@
-# React + Vite
+# 📝 Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and interactive Todo App built with React.js that helps users manage their daily tasks efficiently.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+➕ **Add Tasks**
+Create and add new tasks to your todo list.
 
-## React Compiler
+✏️ **Edit Tasks**
+Modify existing tasks whenever needed.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🔄 **Update Tasks**
+Save changes after editing a task.
 
-## Expanding the ESLint configuration
+🗑️ **Delete Tasks**
+Remove completed or unwanted tasks from the list.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+📋 **View All Tasks**
+Display all tasks in an organized list.
+
+⚛️ **Built with React**
+Uses React Hooks such as `useState` for state management.
+
+🎯 **User-Friendly Interface**
+Simple and clean design for a better user experience.
+
+## 🚀 Technologies Used
+
+- React JS
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+
+## 📚 What I Learned
+
+- React Components
+- JSX
+- useState Hook
+- Event Handling
+- Conditional Rendering
+- Array Methods (`map`, `filter`)
+- CRUD Operations (Create, Read, Update, Delete)
+
+## 👨‍💻 Author
+
+Vishal More
+
+video link - https://drive.google.com/file/d/1ZF8Gco-2_ozq04CcA2zAfgTg41en6bZr/view?usp=sharing
