@@ -16,7 +16,7 @@ export default function TextUtils() {
   return (
     <>
       <div className="container d-flex flex-column text-light mt-5">
-      <h1>Text-Utils</h1>
+        <h1>Text-Utils</h1>
         <div className="form-floating mb-3">
           <textarea
             className="form-control rounded-5 "
