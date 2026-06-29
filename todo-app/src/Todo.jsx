@@ -9,7 +9,7 @@ export default function Todo() {
   // create funtion for LS
   const setLS = (data) => {
     localStorage.setItem("todos", JSON.stringify(data));
-  };
+  };  
   const getLS = () => {
     setTodos(JSON.parse(localStorage.getItem("todos")) || []);
   };
